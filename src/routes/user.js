@@ -1,12 +1,12 @@
 const express = require("express");
-const router = express.Router();
 const { User } = require("../models/index");
+const router = express.Router();
 
 router.get("/users", getUsersHandler);
 router.get("/user/:id", getSingleUsersHandler);
 router.post("/newUser", newUserHandler);
 router.put("updateUserInfo/:id", updateUserInfoHandler);
-router.put("deleteUser/:id", deleteUserHandler);
+router.delete("deleteUser/:id", deleteUserHandler);
 
 // controllers
 async function getUsersHandler(req, res) {
@@ -28,7 +28,7 @@ async function newUserHandler(req, res) {
 async function updateUserInfoHandler(req, res) {
   let updateInfo = req.body;
   let pid = req.params.id;
-  let userToUpdate = await food.findOne({ where: { id: pid } });
+  let userToUpdate = await User.findOne({ where: { id: pid } });
   const updatedUser = await userToUpdate.update(updateInfo);
   res.status(201).json(updatedUser);
 }

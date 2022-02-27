@@ -3,6 +3,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const user = require("./user");
 const clothes = require("./clothes");
+require("dotenv").config();
 
 const POSTGRES_URL = process.env.DATABASE_URL;
 
