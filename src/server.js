@@ -16,20 +16,19 @@ app.use(express.json());
 app.use(cors());
 app.use(logger);
 
-// app.use("/", (req, res) => {
-//   res.send("server is working");
-// });
+app.get("/", (req, res) => {
+  res.send("server is working");
+});
 
 app.use(userRoutes);
 app.use(clothesRoutes);
 
-const start = (port) => {
-  app.listen(port, () => console.log(`Running on Port ${port}`));
-};
-
 app.use("*", notFoundHandler);
 app.use(errorHandler);
 
+const start = (port) => {
+  app.listen(port, () => console.log(`Running on Port ${port}`));
+};
 module.exports = {
   app: app,
   start: start,
