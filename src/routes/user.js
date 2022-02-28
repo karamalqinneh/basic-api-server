@@ -23,7 +23,6 @@ async function getSingleUsersHandler(req, res) {
 
 async function newUserHandler(req, res) {
   let newUser = req.body;
-  //   console.log(newUser);
   let user = await User.create(newUser);
   res.status(201).json(user);
 }

@@ -2,11 +2,11 @@ const Clothes = (sequelize, dataTypes) =>
   sequelize.define("clothes", {
     top: {
       type: dataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     bottoms: {
       type: dataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     eyeWear: {
       type: dataTypes.STRING,
