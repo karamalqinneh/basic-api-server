@@ -5,8 +5,8 @@ const { Clothes } = require("../models/index");
 router.get("/clothes", getclothesHandler);
 router.get("/clothe/:id", getClotheHandler);
 router.post("/newClothe", newclotheHandler);
-router.put("updateclotheInfo/:id", updateclotheInfoHandler);
-router.put("deleteclothe/:id", deleteclotheHandler);
+router.put("/updateclotheInfo/:id", updateclotheInfoHandler);
+router.delete("/deleteclothe/:id", deleteclotheHandler);
 
 // controllers
 async function getclothesHandler(req, res) {
@@ -29,6 +29,7 @@ async function updateclotheInfoHandler(req, res) {
   let updateInfo = req.body;
   let pid = req.params.id;
   let clotheToUpdate = await Clothes.findOne({ where: { id: pid } });
+  console.log(clotheToUpdate);
   const updatedclothe = await clotheToUpdate.update(updateInfo);
   res.status(201).json(updatedclothe);
 }

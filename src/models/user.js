@@ -1,4 +1,4 @@
-const User = (sequelize, dataTypes) => {
+const User = (sequelize, dataTypes) =>
   sequelize.define("people", {
     firstName: {
       type: dataTypes.STRING,
@@ -15,6 +15,5 @@ const User = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER,
     },
   });
-};
 
 module.exports = User;

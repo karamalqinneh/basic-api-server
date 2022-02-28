@@ -7,11 +7,14 @@ const errorHandler = require("./error-handlers/500");
 const logger = require("./middleware/logger");
 const userRoutes = require("./routes/user");
 const clothesRoutes = require("./routes/clothes");
-const app = express();
+const { User } = require("./models/index");
+// console.log(User);
 
+const app = express();
 // Global Middlewares
 app.use(express.json());
 app.use(cors());
+
 app.use(userRoutes);
 app.use(clothesRoutes);
 
@@ -20,9 +23,8 @@ const start = (port) => {
 };
 
 app.use("/", (req, res) => {
-  res.send("server s working");
+  res.send("server is working");
 });
-
 app.use("*", notFoundHandler);
 app.use(errorHandler);
 

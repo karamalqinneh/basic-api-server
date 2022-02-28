@@ -1,4 +1,4 @@
-const Clothes = (sequelize, dataTypes) => {
+const Clothes = (sequelize, dataTypes) =>
   sequelize.define("clothes", {
     top: {
       type: dataTypes.STRING,
@@ -18,6 +18,5 @@ const Clothes = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
     },
   });
-};
 
 module.exports = Clothes;

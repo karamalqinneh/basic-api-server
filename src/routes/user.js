@@ -1,12 +1,13 @@
 const express = require("express");
 const { User } = require("../models/index");
 const router = express.Router();
+// console.log(User);
 
 router.get("/users", getUsersHandler);
 router.get("/user/:id", getSingleUsersHandler);
 router.post("/newUser", newUserHandler);
-router.put("updateUserInfo/:id", updateUserInfoHandler);
-router.delete("deleteUser/:id", deleteUserHandler);
+router.put("/updateUserInfo/:id", updateUserInfoHandler);
+router.delete("/deleteUser/:id", deleteUserHandler);
 
 // controllers
 async function getUsersHandler(req, res) {
@@ -22,6 +23,7 @@ async function getSingleUsersHandler(req, res) {
 
 async function newUserHandler(req, res) {
   let newUser = req.body;
+  //   console.log(newUser);
   let user = await User.create(newUser);
   res.status(201).json(user);
 }
@@ -35,8 +37,9 @@ async function updateUserInfoHandler(req, res) {
 
 async function deleteUserHandler(req, res) {
   let pid = parseInt(req.params.id);
+  console.log(pid);
   let user = await User.destroy({ where: { id: pid } });
-  res.status(201).json(`deleted the user successfully`);
+  res.status(201).json(user);
 }
 
 module.exports = router;
