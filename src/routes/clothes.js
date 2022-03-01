@@ -3,10 +3,10 @@ const router = express.Router();
 const { Clothes } = require("../models/index");
 
 router.get("/clothes", getclothesHandler);
-router.get("/clothe/:id", getClotheHandler);
-router.post("/newClothe", newclotheHandler);
-router.put("/updateclotheInfo/:id", updateclotheInfoHandler);
-router.delete("/deleteclothe/:id", deleteclotheHandler);
+router.get("/clothes/:id", getClotheHandler);
+router.post("/clothes", newclotheHandler);
+router.put("/clothes/:id", updateclotheInfoHandler);
+router.delete("/clothes/:id", deleteclotheHandler);
 
 // controllers
 async function getclothesHandler(req, res) {
