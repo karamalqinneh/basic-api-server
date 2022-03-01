@@ -3,11 +3,11 @@ const { User } = require("../models/index");
 const router = express.Router();
 // console.log(User);
 
-router.get("/users", getUsersHandler);
+router.get("/user", getUsersHandler);
 router.get("/user/:id", getSingleUsersHandler);
-router.post("/newUser", newUserHandler);
-router.put("/updateUserInfo/:id", updateUserInfoHandler);
-router.delete("/deleteUser/:id", deleteUserHandler);
+router.post("/user", newUserHandler);
+router.put("/user/:id", updateUserInfoHandler);
+router.delete("/user/:id", deleteUserHandler);
 
 // controllers
 async function getUsersHandler(req, res) {
