@@ -4,7 +4,7 @@ Build a REST API using Express, by creating a proper series of endpoints that pe
 
 ## Task Submission
 
-1. [PR Link](https://github.com/karamalqinneh/basic-api-server/pull/8)
+1. [PR Link](https://github.com/karamalqinneh/basic-api-server/pull/10)
 2. [Deployment Link](https://karam-basic-api-server.herokuapp.com/)
 
 ## Task Notes
