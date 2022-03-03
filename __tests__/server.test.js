@@ -5,6 +5,14 @@ const server = require("../src/server");
 const supertest = require("supertest");
 
 const request = supertest(server.app);
+const { database } = require("../src/models/index");
+
+beforeAll(async () => {
+  await database.sync();
+});
+afterAll(async () => {
+  await database.drop();
+});
 
 describe("testing API server", () => {
   //   beforeEach(() => {
@@ -24,15 +32,8 @@ describe("testing API server", () => {
     const body = {
       firstName: "test",
     };
-    const response = await request
-      .post("/user")
-      .send(JSON.stringify(body))
-      .set("Accept", "application/json");
+    const response = await request.post("/user");
     expect(response.status).toEqual(201);
-    end(function (err, res) {
-      if (err) return done(err);
-      return done();
-    });
   });
   it("Read a list of records using GET", async () => {
     const response = await request.get("/user");
